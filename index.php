@@ -1,15 +1,5 @@
 <?php
-    // Database connection
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ulasan_buku";
-
-    $conn = mysqli_connect($hostname, $username, $password, $dbname, 3360);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require './koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,10 +16,11 @@
                 <h1>Buku Favorit</h1>
                 <a href="tambah.php" class="btn btn-primary">Tambah</a>
             </div>
+
             <div class="row">
                 <?php
                     // Ambil data buku dari database
-                    $sql = "SELECT judul, nilai, ulasan FROM buku";
+                    $sql = "SELECT id, judul, nilai, ulasan FROM buku";
                     $result = $conn->query($sql);
                 ?>
 
@@ -53,6 +44,7 @@
                                         ?>
                                     </h6>
                                     <p class="card-text"><?php echo htmlspecialchars($row["ulasan"]); ?></p>
+                                    <a href="aksi_hapus.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus buku ini?')">Hapus</a>
                                 </div>
                             </div>
                         </div>

@@ -1,43 +1,5 @@
 <?php
-    // Database connection
-    $hostname = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "ulasan_buku";
-
-    $conn = mysqli_connect($hostname, $username, $password, $dbname, 3360);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $judul = $_POST["judul"];
-        $nilai = $_POST["nilai"];
-        $ulasan = $_POST["ulasan"];
-
-        $sql = "INSERT INTO buku (judul, nilai, ulasan) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sis", $judul, $nilai, $ulasan);
-
-        if ($stmt->execute()) {
-            echo '<div class="container">
-                <div class="alert alert-success mt-5" role="alert">
-                    Buku berhasil ditambahkan
-                </div>
-            </div>';
-        } else {
-            echo '<div class="container">
-                <div class="alert alert-danger mt-5" role="alert">
-                    Buku gagal ditambahkan
-                </div>
-            </div>';
-        }
-
-        $stmt->close();
-    }
-
-    $conn->close();
+    require './koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +17,7 @@
                 <a href="index.php" class="btn btn-secondary">Kembali</a>
                 <h1>Tambah Buku</h1>
             </div>
-            <form method="post" action="">
+            <form method="post" action="aksi_tambah.php">
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul Buku</label>
                     <input type="text" class="form-control" id="judul" name="judul" required>
