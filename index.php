@@ -45,6 +45,7 @@
                                     </h6>
                                     <p class="card-text"><?php echo htmlspecialchars($row["ulasan"]); ?></p>
                                     <a href="aksi_hapus.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus buku ini?')">Hapus</a>
+                                    <a href="edit.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-primary">Edit</a>
                                 </div>
                             </div>
                         </div>
