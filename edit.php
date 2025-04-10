@@ -1,4 +1,13 @@
 <?php
+    // Memulai session
+    session_start();
+    
+    // Cek apakah user sudah login
+    if (!isset($_SESSION['sudah_login']) || $_SESSION['sudah_login'] !== true) {
+        header('Location: login.php');
+        exit;
+    }
+    
     // Kalau ga ada ID di URL, redirect ke index.php (halaman utama)
     if (!isset($_GET['id'])) {
         header('Location: index.php');

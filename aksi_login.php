@@ -35,9 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Jika login berhasil, redirect ke halaman index.php
             header("Location: index.php");
             exit;
+        } else {
+            // Password salah
+            $_SESSION['error'] = "Username atau password salah";
         }
+    } else {
+        // Username tidak ditemukan
+        $_SESSION['error'] = "Username atau password salah";
     }
 
-    // Jika login gagal, kembalikan ke halaman login
+    // Jika login gagal, kembalikan ke halaman login dengan pesan error
     header("Location: login.php");
+    exit;
 }

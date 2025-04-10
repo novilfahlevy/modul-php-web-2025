@@ -1,4 +1,13 @@
 <?php
+    // Memulai session
+    session_start();
+    
+    // Cek apakah user sudah login
+    if (!isset($_SESSION['sudah_login']) || $_SESSION['sudah_login'] !== true) {
+        header('Location: login.php');
+        exit;
+    }
+    
     require './koneksi.php';
 ?>
 
