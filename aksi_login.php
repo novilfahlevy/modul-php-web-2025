@@ -27,7 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifikasi password
         if ($password === $pengguna['password']) {
-            $_SESSION['user_id'] = $pengguna['id'];
+            // Simpan data pengguna ke session
+            $_SESSION['sudah_login'] = true;
+            $_SESSION['id_pengguna'] = $pengguna['id'];
             $_SESSION['username'] = $pengguna['username'];
 
             // Jika login berhasil, redirect ke halaman index.php
