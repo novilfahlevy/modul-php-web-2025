@@ -21,6 +21,8 @@
     </head>
 
     <body>
+        <?php require './navbar.php'; ?>
+        
         <div class="container mt-5">
             <div class="d-flex align-items-center gap-3 mb-4">
                 <a href="index.php" class="btn btn-secondary">Kembali</a>

@@ -20,6 +20,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
+        <?php require './navbar.php'; ?>
+
         <div class="container mt-5">
             <div class="d-flex justify-content-between align-items-center mb-5">
                 <h1>Buku Favorit</h1>
